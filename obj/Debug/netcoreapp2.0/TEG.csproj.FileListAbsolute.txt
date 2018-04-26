@@ -1,0 +1,11 @@
+C:\Users\admin\RiderProjects\TEG\TEG\bin\Debug\netcoreapp2.0\TEG.deps.json
+C:\Users\admin\RiderProjects\TEG\TEG\bin\Debug\netcoreapp2.0\TEG.runtimeconfig.json
+C:\Users\admin\RiderProjects\TEG\TEG\bin\Debug\netcoreapp2.0\TEG.runtimeconfig.dev.json
+C:\Users\admin\RiderProjects\TEG\TEG\bin\Debug\netcoreapp2.0\TEG.dll
+C:\Users\admin\RiderProjects\TEG\TEG\bin\Debug\netcoreapp2.0\TEG.pdb
+C:\Users\admin\RiderProjects\TEG\TEG\obj\Debug\netcoreapp2.0\TEG.csprojResolveAssemblyReference.cache
+C:\Users\admin\RiderProjects\TEG\TEG\obj\Debug\netcoreapp2.0\TEG.csproj.CoreCompileInputs.cache
+C:\Users\admin\RiderProjects\TEG\TEG\obj\Debug\netcoreapp2.0\TEG.AssemblyInfoInputs.cache
+C:\Users\admin\RiderProjects\TEG\TEG\obj\Debug\netcoreapp2.0\TEG.AssemblyInfo.cs
+C:\Users\admin\RiderProjects\TEG\TEG\obj\Debug\netcoreapp2.0\TEG.dll
+C:\Users\admin\RiderProjects\TEG\TEG\obj\Debug\netcoreapp2.0\TEG.pdb
