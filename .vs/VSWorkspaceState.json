@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin",
+    "\\bin\\Debug",
+    "\\bin\\Debug\\netcoreapp2.0",
+    "\\bin\\Release",
+    "\\bin\\Release\\netcoreapp2.0",
+    "\\Controllers"
+  ],
+  "PreviewInSolutionExplorer": false
+}
