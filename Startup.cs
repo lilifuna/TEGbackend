@@ -35,6 +35,7 @@ namespace TEG
             }
 
             app.UseMvc();
+          
         }
     }
 }
