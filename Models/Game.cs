@@ -8,11 +8,46 @@ namespace TEG.Models
     [DataContract]
     public class Game
     {
-        [DataMember] private String gameId { get; set; }
-        [DataMember] private String gameName{ get; set; }
-        [DataMember] private String lanes{ get; set; }
-        [DataMember] private List<String> playersIds { get; set; }  
-        [DataMember] private String moderatorUserId { get; set; }
+        [DataMember] private String gameId;
+        [DataMember] private String gameName;
+        [DataMember] private String lanes;
+        [DataMember] private List<String> playersIds;
+        [DataMember] private String moderatorUserId;
+        
+        
+        
+        
+        
+        
+        public string GameId
+        {
+            get => gameId;
+            set => gameId = value;
+        }
+        
+        public string GameName
+        {
+            get => gameName;
+            set => gameName = value;
+        }
+
+        public string Lanes
+        {
+            get => lanes;
+            set => lanes = value;
+        }
+
+        public List<string> PlayersIds
+        {
+            get => playersIds;
+            set => playersIds = value;
+        }
+
+        public string ModeratorUserId
+        {
+            get => moderatorUserId;
+            set => moderatorUserId = value;
+        }
 
     }
 }

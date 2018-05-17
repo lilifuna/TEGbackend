@@ -21,9 +21,13 @@ namespace TEG
             throw new System.NotImplementedException();
         }
 
-        public bool CreateNewGame(string name)
+        public string CreateNewGame(string name)
         {
-            throw new System.NotImplementedException();
+            string gameID = null;
+
+                                    //TODO: Database query that returns the newly created game's ID
+
+            return gameID;
         }
 
         

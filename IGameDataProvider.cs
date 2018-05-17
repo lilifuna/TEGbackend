@@ -10,7 +10,7 @@ namespace TEG
         List<Game> GetAllGames();
         Game GetGameById(String gameID);
         List<Game> GetGamesOfPlayer(String playerID);
-        bool CreateNewGame(String name);
+        string CreateNewGame(String name);
 
         
     }
