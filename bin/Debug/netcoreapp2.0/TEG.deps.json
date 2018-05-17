@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "7c6491b782d123313f51c5d8be7df63ef9431974"
+    "signature": "fa535a7f356538519eddd89d32f2dc41e78b8e4d"
   },
   "compilationOptions": {
     "defines": [
@@ -23,6 +23,8 @@
     ".NETCoreApp,Version=v2.0": {
       "TEG/1.0.0": {
         "dependencies": {
+          "EntityFramework": "6.2.0",
+          "Microsoft.AspNet.SignalR.Core": "2.2.3",
           "Microsoft.AspNetCore.All": "2.0.5",
           "Microsoft.NETCore.App": "2.0.0"
         },
@@ -31,6 +33,16 @@
         },
         "compile": {
           "TEG.dll": {}
+        }
+      },
+      "EntityFramework/6.2.0": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -118,6 +130,20 @@
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
+        }
+      },
+      "Microsoft.AspNet.SignalR.Core/2.2.3": {
+        "dependencies": {
+          "Microsoft.Owin": "2.1.0",
+          "Microsoft.Owin.Security": "2.1.0",
+          "Newtonsoft.Json": "10.0.1",
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.SignalR.Core.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.SignalR.Core.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.0.1": {
@@ -2251,6 +2277,29 @@
         }
       },
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.Owin/2.1.0": {
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Security/2.1.0": {
+        "dependencies": {
+          "Microsoft.Owin": "2.1.0",
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Security.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Security.dll": {}
+        }
+      },
       "Microsoft.Rest.ClientRuntime/2.3.8": {
         "dependencies": {
           "NETStandard.Library": "2.0.0",
@@ -2363,6 +2412,14 @@
         },
         "compile": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "runtime": {
+          "lib/net40/Owin.dll": {}
+        },
+        "compile": {
+          "lib/net40/Owin.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -3978,6 +4035,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "EntityFramework/6.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
+      "path": "entityframework/6.2.0",
+      "hashPath": "entityframework.6.2.0.nupkg.sha512"
+    },
     "Libuv/1.10.0": {
       "type": "package",
       "serviceable": true,
@@ -4005,6 +4069,13 @@
       "sha512": "sha512-RWxdX90MY6tNF8S5lwRvJcHiBMIWwVLCxd4TGIEl3X0yAKaolY2vs4zTCvyCIVkEAMs1aInTgWkYwOjzYvAHWw==",
       "path": "microsoft.applicationinsights.dependencycollector/2.4.1",
       "hashPath": "microsoft.applicationinsights.dependencycollector.2.4.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.SignalR.Core/2.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PxIYHxQmYLvVFFQIf5p/e2HeSKWN35GXQp9oQVOtB0JO0ODhuMaQ32ghEEfnrW8H++MMpLdQfh4dqBmbu4XEkg==",
+      "path": "microsoft.aspnet.signalr.core/2.2.3",
+      "hashPath": "microsoft.aspnet.signalr.core.2.2.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.0.1": {
       "type": "package",
@@ -5077,6 +5148,20 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
+    "Microsoft.Owin/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lk0kK64mlmcmtWX8YOYkZsnZKDoGEzMZhe8e1bcP+FFcgD4f2QfKwvu5Z8Bh8WS0VO7Rgk+DJ0hwW0k+S/UGMg==",
+      "path": "microsoft.owin/2.1.0",
+      "hashPath": "microsoft.owin.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.Owin.Security/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4n1V0p+O6W1L0xHUM8Cjp2Y+MmmUkiCZv6PvRNIDCJD9zlerBJa2HECo9lUiWC+KuasQJ3QxB1FmipNBxdXXIQ==",
+      "path": "microsoft.owin.security/2.1.0",
+      "hashPath": "microsoft.owin.security.2.1.0.nupkg.sha512"
+    },
     "Microsoft.Rest.ClientRuntime/2.3.8": {
       "type": "package",
       "serviceable": true,
@@ -5125,6 +5210,13 @@
       "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "Owin/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
+      "path": "owin/1.0.0",
+      "hashPath": "owin.1.0.0.nupkg.sha512"
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",
