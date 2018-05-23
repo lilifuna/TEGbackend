@@ -27,10 +27,6 @@
   "frameworks": {
     "netcoreapp2.0": {
       "dependencies": {
-        "EntityFramework": {
-          "target": "Package",
-          "version": "[6.2.0, )"
-        },
         "Microsoft.AspNet.SignalR.Core": {
           "target": "Package",
           "version": "[2.2.3, )"
@@ -38,6 +34,14 @@
         "Microsoft.AspNetCore.All": {
           "target": "Package",
           "version": "[2.0.5, )"
+        },
+        "Microsoft.EntityFrameworkCore.SqlServer": {
+          "target": "Package",
+          "version": "[2.1.0-rc1-final, )"
+        },
+        "Microsoft.EntityFrameworkCore.Tools": {
+          "target": "Package",
+          "version": "[2.1.0-rc1-final, )"
         },
         "Microsoft.NETCore.App": {
           "suppressParent": "All",

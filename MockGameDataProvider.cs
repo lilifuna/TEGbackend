@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Razor.Language;
 using TEG.Models;
 
@@ -8,7 +9,9 @@ namespace TEG
     {
         private List<Game> games;
 
-        public MockGameDataProvider()
+        private static MockGameDataProvider instance;
+
+        private MockGameDataProvider()
         {
             GenerateMockGames();
         }
@@ -22,19 +25,20 @@ namespace TEG
                 temp.GameName = "Game: " + i;
                 temp.Lanes = " "; // TODO: JSON lanes compatible with frontend
                 temp.ModeratorUserId = 0.ToString();
-                temp.PlayersIds = new List<string>(new string[] {"1", "2", "3"});
+                temp.PlayersIds = "\"players\" : [\"1\",\"2\"]";
+                temp.Agreed = "\"agreed\" : [\"1\",\"0\"]";
                 games.Add(temp);
             }
         }
 
         public List<Game> GetAllGames()
         {
-            return new List<Game>();
+            return games;
         }
 
         public Game GetGameById(string gameID)
         {
-            throw new System.NotImplementedException();
+            return games[Int32.Parse(gameID)];
         }
 
         public List<Game> GetGamesOfPlayer(string playerID)
@@ -44,7 +48,18 @@ namespace TEG
 
         public string CreateNewGame(string name)
         {
-            throw new System.NotImplementedException();
+            Game temp = new Game();
+            temp.GameName = name;
+            games.Add(temp);
+       
+            return games.IndexOf(temp).ToString();
+        }
+
+
+        public static MockGameDataProvider GetInstance()
+        {
+            if(instance == null) instance = new MockGameDataProvider();
+            return instance;
         }
     }
 }

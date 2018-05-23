@@ -8,17 +8,27 @@ namespace TEG.Models
     [DataContract]
     public class Game
     {
-        [DataMember] private String gameId;
-        [DataMember] private String gameName;
-        [DataMember] private String lanes;
-        [DataMember] private List<String> playersIds;
-        [DataMember] private String moderatorUserId;
+
+        public enum GameStatus
+        {
+            CREATED,
+            STARTED,
+            PAUSED,
+            FINISHED
+        }
         
-        
-        
-        
-        
-        
+        private String gameId;
+        private String gameName;
+        private String lanes;
+        private String playersIds; //JSON
+        private String moderatorUserId;
+        private String agreed; //JSON
+        private GameStatus status;
+
+       
+
+
+        //Accessors
         public string GameId
         {
             get => gameId;
@@ -37,7 +47,7 @@ namespace TEG.Models
             set => lanes = value;
         }
 
-        public List<string> PlayersIds
+        public string PlayersIds
         {
             get => playersIds;
             set => playersIds = value;
@@ -48,6 +58,17 @@ namespace TEG.Models
             get => moderatorUserId;
             set => moderatorUserId = value;
         }
-
+ 
+        public String Agreed
+        {
+            get => agreed;
+            set => agreed = value;
+        } 
+        
+        public GameStatus Status
+        {
+            get => status;
+            set => status = value;
+        }
     }
 }

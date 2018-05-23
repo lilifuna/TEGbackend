@@ -31,9 +31,16 @@ namespace TEG
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            using(var dbContext = new GameDBContext())
+            {
+                dbContext.Database.EnsureCreated();
+            }
+            
+            
             services.AddMvc();
 
-            services.AddAuthentication(options =>
+            /*services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -72,7 +79,7 @@ namespace TEG
                             context.RunClaimActions(user);
                         }
                     };
-                });
+                });*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,9 +3,16 @@ using TEG.Models;
 
 namespace TEG
 {
-    public class GameDatabaseHelper : IGameDataProvider
+    public sealed class GameDatabaseHelper : IGameDataProvider
     {
-       
+
+        private static GameDatabaseHelper instance;
+        
+        private GameDatabaseHelper()
+        {
+            
+        }
+        
         public List<Game> GetAllGames()
         {
             throw new System.NotImplementedException();
@@ -30,6 +37,11 @@ namespace TEG
             return gameID;
         }
 
-        
+
+        public static GameDatabaseHelper GetInstance()
+        {
+            if(instance == null) instance = new GameDatabaseHelper();
+            return instance;
+        }
     }
 }
