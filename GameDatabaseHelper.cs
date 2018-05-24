@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using TEG.Models;
 
 namespace TEG
@@ -71,13 +72,59 @@ namespace TEG
                 }
             }
         }
-         
 
+
+        public void AddNewUser(String username)
+        {
+            using (var context = new GameDBContext())
+            {
+                User user = new User();
+                user.Username = username;
+
+                context.users.Add(user);
+                context.SaveChanges();
+            }
+        }
+
+        public User GetUser(String username)
+        {
+            User result = null;
+            using (var context = new GameDBContext())
+            {
+                result = context.users
+                    .Single(b => b.Username == username);
+            }
+
+            return result;
+        }
+
+
+        public ICollection<Game> GetGamesOfUser(String username)
+        {
+            List<Game> result = new List<Game>();
+
+            using (var context = new GameDBContext())
+            {
+                User user = context.users
+                    .Single(u => u.Username == username);
+                
+                result = context.gamesOfUsers
+                    .Where(gou => gou.PlayerId == user.UserId)
+                    .Select(x => x.Game)
+                    .ToList();
+            }
+
+            return result;
+        }
+        
+        
 
         public static GameDatabaseHelper GetInstance()
         {
             if(instance == null) instance = new GameDatabaseHelper();
             return instance;
         }
+        
+      
     }
 }

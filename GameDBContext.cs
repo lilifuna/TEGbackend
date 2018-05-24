@@ -9,6 +9,7 @@ namespace TEG
         
         public DbSet<Game> games { get; set; }
         public DbSet<User> users { get; set; }
+        public DbSet<GamesOfUsers> gamesOfUsers { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
