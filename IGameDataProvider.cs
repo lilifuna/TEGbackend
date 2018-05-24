@@ -8,10 +8,11 @@ namespace TEG
     {
         
         List<Game> GetAllGames();
-        Game GetGameById(String gameID);
+        Game GetGameById(int gameID);
         List<Game> GetGamesOfPlayer(String playerID);
-        string CreateNewGame(String name);
+        int CreateNewGame(String name);
+        void UpdateGame(Game gameState);
 
-        
+
     }
 }

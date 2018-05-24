@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using TEG.Models;
 
 namespace TEG
@@ -15,27 +17,61 @@ namespace TEG
         
         public List<Game> GetAllGames()
         {
-            throw new System.NotImplementedException();
+            List<Game> result = new List<Game>();
+            using (var context = new GameDBContext())
+            {
+                result = context.games.ToList();
+            }
+
+            return result;       
         }
 
-        public Game GetGameById(string gameID)
+        public Game GetGameById(int gameID)
         {
-            throw new System.NotImplementedException();
+            Game result = null;
+            using (var context = new GameDBContext())
+            {
+                result = context.games.Find(gameID);
+            }
+
+            return result;
         }
 
-        public List<Game> GetGamesOfPlayer(string playerID)
+        public List<Game> GetGamesOfPlayer(string playerID)   //currently not possible due to players being stored in JSON as a field of Game object
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public string CreateNewGame(string name)
+        public int CreateNewGame(string name)
         {
-            string gameID = null;
+            int gameID = 0;
+            Game temp = new Game();
+            temp.GameName = name;
 
-                                    //TODO: Database query that returns the newly created game's ID
-
+            using (var context = new GameDBContext())
+            {
+                gameID = context.games.Add(temp).Entity.GameId;
+                context.SaveChanges();
+            }
+              
             return gameID;
         }
+
+
+        public void UpdateGame(Game newGameState)
+        {
+            using (var context = new GameDBContext())
+            {
+                Game game = context.games.Find(newGameState.GameId);
+                if (game != null)
+                {
+                    game.Copy(newGameState);
+                    context.games.Update(game);
+                    context.SaveChanges();
+                }
+            }
+        }
+         
 
 
         public static GameDatabaseHelper GetInstance()

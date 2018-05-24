@@ -7,6 +7,7 @@ namespace TEG
     {
         
         public DbSet<Game> games { get; set; }
+        public DbSet<User> users { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -18,6 +19,12 @@ namespace TEG
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Game>().HasMany(game => game.Players);
+
+            modelBuilder.Entity<User>().HasMany(user => user.GamesOfUser);
+
+
         }
     }
 }

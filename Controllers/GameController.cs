@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Transactions;
 using Microsoft.AspNetCore.Mvc;
 using TEG.Models;
@@ -9,15 +10,13 @@ namespace TEG.Controllers
     public class GameController : Controller
     {
 
-        private IGameDataProvider dataProvider;
+        private IGameDataProvider dataProvider =  GameDatabaseHelper.GetInstance();
         
         
         //POST api/game/game1
         [HttpPost("{name}")]
         public void NewGame(String name) //Or maybe it's better to create a new game by sending full JSON created on the client-side?
-        {
-            IGameDataProvider dataProvider = MockGameDataProvider.GetInstance(); // GameDatabaseHelper.GetInstance(); FOR DEVELOPMENT PURPOSES
-
+        {      
             dataProvider.CreateNewGame(name);
         }
         
@@ -25,16 +24,15 @@ namespace TEG.Controllers
 
         //POST api/game/
         [HttpPost]
-        public IActionResult UpdateGameState([FromBody] Game gameState)
+        public async Task UpdateGameState([FromBody] Game gameState)
         {
-            return Json(gameState);
+            dataProvider.UpdateGame(gameState);
         }
         
         //GET api/game/12345
         [HttpGet("{gameId}")]
-        public JsonResult GetGameState(String gameId)
+        public JsonResult GetGameState(int gameId)
         {
-            IGameDataProvider dataProvider = MockGameDataProvider.GetInstance(); // GameDatabaseHelper.GetInstance();
             return Json(dataProvider.GetGameById(gameId));
         }
         
@@ -42,8 +40,9 @@ namespace TEG.Controllers
         [HttpGet]
         public JsonResult GetAllGames()
         {
-            IGameDataProvider dataProvider = MockGameDataProvider.GetInstance(); // GameDatabaseHelper.GetInstance();
             return Json(dataProvider.GetAllGames());
         }
+        
+        
     }
 }

@@ -21,7 +21,7 @@ namespace TEG
             for (int i = 0; i < 10; i++)
             {
                 Game temp = new Game();
-                temp.GameId = i.ToString();
+                temp.GameId = i;
                 temp.GameName = "Game: " + i;
                 temp.Lanes = " "; // TODO: JSON lanes compatible with frontend
                 temp.ModeratorUserId = 0.ToString();
@@ -36,9 +36,9 @@ namespace TEG
             return games;
         }
 
-        public Game GetGameById(string gameID)
+        public Game GetGameById(int gameID)
         {
-            return games[Int32.Parse(gameID)];
+            return games[gameID];
         }
 
         public List<Game> GetGamesOfPlayer(string playerID)
@@ -46,13 +46,18 @@ namespace TEG
             throw new System.NotImplementedException();
         }
 
-        public string CreateNewGame(string name)
+        public int CreateNewGame(string name)
         {
             Game temp = new Game();
             temp.GameName = name;
             games.Add(temp);
        
-            return games.IndexOf(temp).ToString();
+            return games.IndexOf(temp);
+        }
+
+        public void UpdateGame(Game newGameState)
+        {
+            throw new NotImplementedException();
         }
 
 

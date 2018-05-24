@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
 namespace TEG.Models
 {
     
-    [DataContract]
+    
     public class Game
     {
 
@@ -17,23 +18,54 @@ namespace TEG.Models
             FINISHED
         }
         
-        private String gameId;
+        
+        [Key] 
+        private int gameId;
+        
+        [Required]
+        [MaxLength(256)]
         private String gameName;
-        private String lanes;
-        private String playersIds; //JSON
-        private String moderatorUserId;
-        private String agreed; //JSON
-        private GameStatus status;
+        
+        private String lanes = "";
+        
+        private String playersIds = "\"players\" : []"; //JSON
+        
+        private String moderatorUserId = "";
+        
+        private String agreed = "\"agreed\" : []"; //JSON
+        
+        //private GameStatus status = GameStatus.CREATED;
 
-       
+        private List<User> players = new List<User>();
 
 
+
+
+
+        public void Copy(Game source)
+        {
+            gameId = source.GameId;
+            lanes = source.lanes;
+            playersIds = source.playersIds;
+            moderatorUserId = source.moderatorUserId;
+            agreed = source.agreed;
+            gameName = source.gameName;
+            players = source.players;
+        }
+        
+        
         //Accessors
-        public string GameId
+        public int GameId
         {
             get => gameId;
             set => gameId = value;
         }
+        
+        public List<User> Players
+                {
+                    get => players;
+                    set => players = value;
+                }
         
         public string GameName
         {
@@ -65,10 +97,10 @@ namespace TEG.Models
             set => agreed = value;
         } 
         
-        public GameStatus Status
+        /*public GameStatus Status
         {
             get => status;
             set => status = value;
-        }
+        }*/
     }
 }
