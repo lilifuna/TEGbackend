@@ -33,12 +33,12 @@ namespace TEG.Models
         private String moderatorUserId = "";
         
         private String agreed = "\"agreed\" : []"; //JSON
-        
+
+        private ICollection<GamesOfUsers> gamesOfUsers;
+
+      
+
         //private GameStatus status = GameStatus.CREATED;
-
-        private List<User> players = new List<User>();
-
-
 
 
 
@@ -50,7 +50,6 @@ namespace TEG.Models
             moderatorUserId = source.moderatorUserId;
             agreed = source.agreed;
             gameName = source.gameName;
-            players = source.players;
         }
         
         
@@ -61,11 +60,11 @@ namespace TEG.Models
             set => gameId = value;
         }
         
-        public List<User> Players
-                {
-                    get => players;
-                    set => players = value;
-                }
+          public ICollection<GamesOfUsers> GamesOfUsers
+          {
+            get => gamesOfUsers;
+            set => gamesOfUsers = value;
+          }
         
         public string GameName
         {

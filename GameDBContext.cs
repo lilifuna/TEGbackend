@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using TEG.Models;
 
 namespace TEG
@@ -20,9 +21,18 @@ namespace TEG
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Game>().HasMany(game => game.Players);
+            modelBuilder.Entity<GamesOfUsers>().HasKey(gou => new {gou.GameId, gou.PlayerId});
 
-            modelBuilder.Entity<User>().HasMany(user => user.GamesOfUser);
+            modelBuilder.Entity<GamesOfUsers>()
+                .HasOne(gou => gou.Game)
+                .WithMany(g => g.GamesOfUsers)
+                .HasForeignKey(gou => gou.GameId);
+            
+            modelBuilder.Entity<GamesOfUsers>()
+                .HasOne(gou => gou.Player)
+                .WithMany(p => p.GamesOfUsers)
+                .HasForeignKey(gou => gou.PlayerId);
+            
 
 
         }

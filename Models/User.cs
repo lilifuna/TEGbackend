@@ -13,14 +13,8 @@ namespace TEG.Models
 
         private string username;
         
-        private List<Game> gamesOfUser;   //optimize? only the gameId is stored in the db
-        
+        private ICollection<GamesOfUsers> gamesOfUsers;
 
-        
-        
-        
-        
-        
         
          public int UserId
                 {
@@ -34,12 +28,14 @@ namespace TEG.Models
             get => username;
             set => username = value;
         }
-
-        public List<Game> GamesOfUser
+        
+        public ICollection<GamesOfUsers> GamesOfUsers
         {
-            get => gamesOfUser;
-            set => gamesOfUser = value;
+            get => gamesOfUsers;
+            set => gamesOfUsers = value;
         }
+
+    
         public override string ToString()
         {
             return userId.ToString();

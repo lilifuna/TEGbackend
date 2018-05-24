@@ -5,7 +5,7 @@ using TEG.Models;
 
 namespace TEG
 {
-    public sealed class GameDatabaseHelper : IGameDataProvider
+    public  class GameDatabaseHelper : IGameDataProvider
     {
 
         private static GameDatabaseHelper instance;
